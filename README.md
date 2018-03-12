@@ -15,7 +15,8 @@ We would like to have a restful API for our statistics. The main use case for ou
 
 #Specs
 
-POST /transactions
+    ● POST /transactions
+
 Every Time a new transaction happened, this endpoint will be called.
 
 Body:
@@ -39,7 +40,9 @@ Where:
     ● amount is a double specifying the amount
     ● time is a long specifying unix time format in milliseconds
 
-#GET​ ​/statistics
+
+    ● GET​ ​/statistics
+
 This is the main endpoint of this task, this endpoint have to execute in constant time and memory (O(1)). It returns the statistic based on the transactions which happened in the last 60 seconds.
 
 Returns:
