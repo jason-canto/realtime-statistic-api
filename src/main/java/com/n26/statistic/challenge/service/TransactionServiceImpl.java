@@ -38,11 +38,16 @@ public class TransactionServiceImpl implements TransactionService {
 
 	@Override
 	public TransactionSummary getTransactionSummary() {
-		DoubleSummaryStatistics summary = transactions.stream()
-				.filter(t -> getTransactionTime(t.getTimestamp()).isBefore(getCurrentTime().minusSeconds(TOTAL_SECONDS)))
-				.collect(Collectors.summarizingDouble(Transaction::getAmount));
-		return new TransactionSummary(summary.getSum(), summary.getAverage(), summary.getMax(), 
-				summary.getMin(), summary.getCount());
+		if (!transactions.isEmpty()) {
+			DoubleSummaryStatistics summary = transactions.stream()
+					.filter(t -> getTransactionTime(t.getTimestamp()).isAfter(getCurrentTime().minusSeconds(TOTAL_SECONDS)))
+					.collect(Collectors.summarizingDouble(Transaction::getAmount));
+			return new TransactionSummary(summary.getSum(), summary.getAverage(), summary.getMax(), 
+					summary.getMin(), summary.getCount());
+		} else {
+			return new TransactionSummary(0.0, 0.0, 0.0, 0.0, 0L);
+		}
+		
 	}
 
 	private ZonedDateTime getTransactionTime(Long transationTime) {

@@ -16,6 +16,8 @@ public class Transaction {
 		this.timestamp = timestamp;
 	}
 
+	public Transaction() {}
+
 	public Double getAmount() {
 		return amount;
 	}
