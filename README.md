@@ -20,6 +20,7 @@ Body:
 }
 
 Where:
+
     ● amount - transaction amount
     ● timestamp - transaction time in epoch in millis in UTC time zone (this is not current timestamp)
 
@@ -29,6 +30,7 @@ Returns: Empty body with either 201 or 204.
     ● 204 - if transaction is older than 60 seconds
 
 Where:
+
     ● amount is a double specifying the amount
     ● time is a long specifying unix time format in milliseconds
 
@@ -45,6 +47,7 @@ Returns:
 }
 
 Where:
+
     ● sum is a double specifying the total sum of transaction value in the last 60 seconds
     ● avg is a double specifying the average amount of transaction value in the last 60 seconds
     ● max is a double specifying single highest transaction value in the last 60 seconds
@@ -56,6 +59,7 @@ Where:
 For the rest api, the biggest and maybe hardest requirement is to make the GET /statistics execute in constant time and space. The best solution would be O(1). It is very recommended to tackle the O(1) requirement as the last thing to do as it is not the only thing which will be rated in the code challenge.
 
 Other requirements, which are obvious, but also listed here explicitly:
+
     ● The API have to be threadsafe with concurrent requests
     ● The API have to function properly, with proper result
     ● The project should be buildable, and tests should also complete successfully. e.g. If maven is used, then mvn clean install should complete successfully.
