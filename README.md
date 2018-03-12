@@ -1,8 +1,10 @@
 # realtime-statistic-api
 Rest API designed to provide realtime statistics based of the transactions of the last 60 seconds.
 
-How to compile and run: mvn spring-boot:run
-How to run tests: mvn test
+#How to compile and run: 
+    ● mvn spring-boot:run
+#How to run tests: 
+    ● mvn test
 
 
 #Code​ ​Challenge
