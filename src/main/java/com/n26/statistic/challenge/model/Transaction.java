@@ -1,9 +1,13 @@
 package com.n26.statistic.challenge.model;
 
+import javax.validation.constraints.NotNull;
+
 public class Transaction {
 
+	@NotNull
 	private Double amount;
 
+	@NotNull
 	private Long timestamp;
 
 	public Transaction(Double amount, Long timestamp) {

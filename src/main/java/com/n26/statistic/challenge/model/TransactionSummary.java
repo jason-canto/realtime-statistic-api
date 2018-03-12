@@ -1,6 +1,6 @@
 package com.n26.statistic.challenge.model;
 
-public class TransactionStatisticInformation {
+public class TransactionSummary {
 
 	private Double sum;
 
@@ -12,7 +12,7 @@ public class TransactionStatisticInformation {
 
 	private Long count;
 
-	public TransactionStatisticInformation(Double sum, Double avg, Double max, Double min, Long count) {
+	public TransactionSummary(Double sum, Double avg, Double max, Double min, Long count) {
 		super();
 		this.sum = sum;
 		this.avg = avg;
