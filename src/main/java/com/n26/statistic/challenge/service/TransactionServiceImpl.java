@@ -8,17 +8,20 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Service;
+
 import com.n26.statistic.challenge.exception.TimeOutOfScopeException;
 import com.n26.statistic.challenge.model.Transaction;
 import com.n26.statistic.challenge.model.TransactionSummary;
 
+@Service
 public class TransactionServiceImpl implements TransactionService {
 
 	private final Queue<Transaction> transactions;
 
 	private final int TOTAL_SECONDS = 60;
 
-	public TransactionServiceImpl(Queue<Transaction> transactions) {
+	public TransactionServiceImpl() {
 		super();
 		this.transactions = new ConcurrentLinkedQueue<Transaction>();
 	}
